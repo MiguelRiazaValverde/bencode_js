@@ -12,12 +12,14 @@ var bencode = (function() {
     function tokenize( code ) {
         var tokens = [];
         var match = null;
+        var number = 0;
 
         function string( type, match ) {
             if( type !== "string" )
                 return null;
             var value = code.substr( 0, match[1] );
             code = code.substr( match[1] );
+            number += value.length;
             return {
                 type: type,
                 value: value
@@ -30,12 +32,13 @@ var bencode = (function() {
                 if( match = code.match( regexp[r] ) ) {
                     flag = false;
                     code = code.replace( match[0], "" );
+                    number += match[0].length;
                     tokens.push( string( r, match ) || { type: r, value: match } );
                     break;
                 }
             }
             if( flag )
-                throw "Error";
+                throw "Unexpected token in " + number + " position";
         }
 
         return tokens;
@@ -130,7 +133,7 @@ var bencode = (function() {
         while( tokens[start] ) {
             var _ = value( tokens, start );
             if( _.type === ERROR )
-                throw _.msg;
+                return _;
             start = _.start;
             values.push( _.value );
         }
