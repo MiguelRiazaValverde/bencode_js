@@ -2,7 +2,7 @@
 Simple Bencode library for JavaScript. Without denpendences.
 
 ## Encode
-Encode `String`, `Number`, `Array` or `Object` (Hash).
+Encode `String`, `Number`, `Array` or `Object` (`Hash`).
 The numbers will be converted to integers.
 
 `bencode.encode === bencode.stringify`
