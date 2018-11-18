@@ -4,6 +4,7 @@ Simple Bencode library for JavaScript. Without denpendences.
 ## Encode
 Encode `String`, `Number`, `Array` or `Object` (Hash).
 The numbers will be converted to integers.
+
 `bencode.encode === bencode.stringify`
 ```javascript
 bencode.stringify( 45 ); // i45e
