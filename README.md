@@ -11,6 +11,7 @@ bencode.stringify( 45 ); // i45e
 bencode.stringify( "Hello" ); // 5:Hello
 bencode.stringify( [1, 2, 3] ); // li1ei2ei3ee
 bencode.stringify( {one: 1, two: 2} ); // d3:onei1e3:twoi2ee
+bencode.stringify( 94, 95 ); // i94ei95e
 ```
 
 ## Decode
