@@ -142,6 +142,9 @@ var bencode = (function() {
     }
 
     function encode_value( obj ) {
+        if( !obj )
+            return "";
+        
         if( typeof obj === "number" )
             return "i" + parseInt(obj) + "e";
         
