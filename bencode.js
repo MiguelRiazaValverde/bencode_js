@@ -130,7 +130,7 @@ var bencode = (function() {
         while( tokens[start] ) {
             var _ = value( tokens, start );
             if( _.type === ERROR )
-                return _;
+                throw _.msg;
             start = _.start;
             values.push( _.value );
         }
@@ -159,13 +159,13 @@ var bencode = (function() {
             
             for( var key in obj ) {
                 if( obj.hasOwnProperty(key) )
-                    dict += encode(key) + encode(obj[key]);
+                    dict += encode( key.toString() ) + encode( obj[key] );
             }
 
             return dict + "e";
         }
 
-        throw "No encode value " + obj;
+        throw "It is not possible to encode " + obj;
     }
 
 
