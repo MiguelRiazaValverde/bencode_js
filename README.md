@@ -1,4 +1,6 @@
 # Bencode js
+Simple Bencode library for JavaScript. Without denpendences.
+
 ## Encode
 `bencode.encode === bencode.stringify`
 ```javascript
