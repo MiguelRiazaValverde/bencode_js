@@ -141,7 +141,7 @@ var bencode = (function() {
         return values;
     }
 
-    function encode( obj ) {
+    function encode_value( obj ) {
         if( typeof obj === "number" )
             return "i" + parseInt(obj) + "e";
         
@@ -171,7 +171,14 @@ var bencode = (function() {
         throw "It is not possible to encode " + obj;
     }
 
+    function encode() {
+        var str = "";
 
+        for(var i = 0; i < arguments.length; i++)
+            str += encode_value( arguments[i] );
+
+        return str;
+    }
 
     return {
         parse: parse,
