@@ -2,7 +2,7 @@
 var bencode = (function() {
 
     var regexp = {
-        integer: /^i((?:-)?\d+)e/,
+        integer: /^i(0|(?:-)?[1-9]\d*)e/,
         string: /^(\d+):/,
         list: /^l/,
         dict: /^d/,
