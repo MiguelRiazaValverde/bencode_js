@@ -142,7 +142,7 @@ var bencode = (function() {
     }
 
     function encode_value( obj ) {
-        if( !obj )
+        if( obj === undefined )
             return "";
         
         if( typeof obj === "number" )
